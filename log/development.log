@@ -6784,3 +6784,4 @@ Processing by RestaurantsController#show as HTML
   Rendered restaurants/show.html.erb within layouts/application (2.9ms)
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
 Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.7ms)
+Connecting to database specified by database.yml
