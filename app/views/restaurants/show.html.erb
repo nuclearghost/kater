@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @restaurant.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= mail_to @restaurant.email %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= link_to @restaurant.website, @restaurant.website %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= User.find_by_id(@restaurant.user_id).name %>
+</p>
+
+<p>
+  <b>Dishes:</b>
+  <ul>
+  <% @restaurant.dishes.each do |dish| %>
+  <%= link_to dish.name, dish_url(dish.id) %>
+  <% end %>
+  </ul>
+</p>
+
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>
