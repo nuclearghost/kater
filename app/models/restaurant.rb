@@ -5,4 +5,6 @@ class Restaurant < ActiveRecord::Base
   has_many :pictures
 
   belongs_to :users
+
+  validates_uniqueness_of :name
 end
