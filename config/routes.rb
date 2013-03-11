@@ -22,6 +22,8 @@ Katerit::Application.routes.draw do
 
   root :to => 'restaurants#index'
 
+  get "/search", :controller => "search", :action => "index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
