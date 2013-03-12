@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :name, :password, :password_confirmation, :remember_me, :role_ids
 
+  validates_presence_of :email
   validates_uniqueness_of :email
+
 
   def role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }

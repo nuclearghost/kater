@@ -11,4 +11,15 @@ class Order < ActiveRecord::Base
   	:allow_destroy => false
   accepts_nested_attributes_for :dishes
 
+  validates_presence_of :event_address
+
+  validate :quantities, :length => { :minimum => 1}
+  #TODO validate the address
+
+  def require_quantities
+  	unless self.dishes.count > 0
+  		errors.add(:order, "must have dishes")
+  	end
+  end
+
 end

@@ -1,8 +1,12 @@
 class OrdersController < ApplicationController
+
+  before_filter :authenticate_user!, :except => [:new]
+
+
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.where("user_id = ?", current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -47,6 +51,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        OrderMailer.created_order_email(@order).deliver
+
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
