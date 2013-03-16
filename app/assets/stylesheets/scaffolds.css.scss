@@ -32,7 +32,7 @@ pre {
 a {
   color: #99F;
   &:visited {
-    color: darken(#99F, 10%);
+    color: lighten(#99F, 10%);
   }
   &:hover {
     color: #fff;

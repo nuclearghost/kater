@@ -7,11 +7,15 @@
 @import "bootstrap";
 
 html, body {
-	background-image:url("escheresque_ste.png");
+	background-image:url("grey.png");
 }
 
 form {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.row {
+	margin-bottom: 20px;
 }

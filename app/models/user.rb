@@ -21,4 +21,5 @@ class User < ActiveRecord::Base
   def role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
+
 end

@@ -1,37 +1,24 @@
-<h1>Listing restaurants</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Website</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+	<div class="span3 offset5">
+		<% if can? :create, Restaurant %>
+    		<%= link_to 'New Restaurant', new_restaurant_path , :class => 'btn btn-primary'%>
+    	<% else %>
+    		<%= link_to 'New Order', new_order_path , :class => 'btn btn-primary'%>
+		<% end %>
+    </div>
+</div>
 
-<% @restaurants.each do |restaurant| %>
-  <tr>
-    <td><%= restaurant.name %></td>
-    <td><%= restaurant.address %></td>
-    <td><%= restaurant.phone %></td>
-    <td><%= mail_to restaurant.email %></td>
-    <td><%= link_to restaurant.website, restaurant.website %></td>
-    <td><%= link_to 'Show', restaurant %></td>
-    <% if can? :update, Restaurant %>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+<% @restaurants.each_with_index do |restaurant, i| %>
+    <% if i%3 == 0 %>
+        <div class="row">
     <% end %>
-    <% if can? :destroy, Restaurant %>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <div class="span4"><%= link_to image_tag(restaurant.pictures.first.url, :class => 'img-rounded') , restaurant%></div>
+
+    <% if i%3 == 2 %>
+        </div>
     <% end %>
-  </tr>
 <% end %>
-</table>
 
-<br />
 
-<% if can? :create, Restaurant %>
-    <%= link_to 'New Restaurant', new_restaurant_path %>
-<% end %>

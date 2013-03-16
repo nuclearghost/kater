@@ -43,3 +43,13 @@
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <% end %>
 <%= link_to 'Back', restaurants_path %>
+
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <% @restaurant.pictures.each_with_index do |picture,i| %>
+      <div class="item <%= 'active' if i == 0%>"><%= image_tag picture.url, :class => "img-rounded" %></div>
+    <% end %>
+  </div>
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a></div>
+</div>

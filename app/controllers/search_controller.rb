@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
 
+  skip_authorization_check
+
   # GET /search.json
   def index
 
