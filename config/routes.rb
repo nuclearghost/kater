@@ -1,24 +1,23 @@
 Katerit::Application.routes.draw do
   resources :orders
 
-
   resources :pictures
-
 
   resources :dishes
 
-
   resources :categories
-
 
   resources :roles
 
-
   devise_for :users
   
-  resources :users
+  resources :users do
+    resources :orders
+  end
 
-  resources :restaurants
+  resources :restaurants do
+    resources :dishes
+  end
 
   root :to => 'restaurants#index'
 

@@ -31,8 +31,9 @@
 </p>
 
 
-
+<% if can? :edit, Dish %>
 <%= link_to 'Edit', edit_dish_path(@dish) %> |
+<% end %>
 <%= link_to 'Back', dishes_path %>
 
 <div id="myCarousel" class="carousel slide">

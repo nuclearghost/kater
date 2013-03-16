@@ -31,7 +31,7 @@ Katerit::Application.configure do
      :address => "smtp.mailgun.org",
      :domain => "kater.it.mailgun.org",
      :user_name => "postmaster@kater.it.mailgun.org",
-     :password => "3a2iervnic42"
+     :password => ENV['MAILGUN_PASSWORD']
 }
 
   # Print deprecation notices to the Rails logger

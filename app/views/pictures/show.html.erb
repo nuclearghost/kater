@@ -2,12 +2,12 @@
 
 <p>
   <b>Restaurant:</b>
-  <%= link_to @picture.restaurant.name, restaurant_url(@picture.restaurant.id) %>
+  <%= link_to @picture.restaurant.name, restaurant_url(@picture.restaurant) %>
 </p>
 
 <p>
   <b>Dish:</b>
-  <%= link_to @picture.dish.name, dish_url(@picture.dish.id) %>
+  <%= link_to @picture.dish.name, dish_url(@picture.dish) %>
 </p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |

@@ -9,7 +9,8 @@ class Ability
 		elsif user.role? :owner
 			can :manage, [Restaurant, Dish]
 		else
-			can :read, :all
+			can :read, [Restaurant, Dish]#:all
+			can :manage, [Order, User]
 		end
 	end
 end

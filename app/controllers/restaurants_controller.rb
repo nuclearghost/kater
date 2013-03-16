@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
 
+  load_and_authorize_resource
+
   before_filter :authenticate_user!, :except => [:index, :show]
 
 
@@ -17,7 +19,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id].to_i)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +40,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1/edit
   def edit
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id].to_i)
   end
 
   # POST /restaurants
@@ -63,7 +65,7 @@ class RestaurantsController < ApplicationController
   # PUT /restaurants/1
   # PUT /restaurants/1.json
   def update
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id].to_i)
 
     respond_to do |format|
       if @restaurant.update_attributes(params[:restaurant])
@@ -79,7 +81,7 @@ class RestaurantsController < ApplicationController
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
   def destroy
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:id].to_i)
     @restaurant.destroy
 
     respond_to do |format|

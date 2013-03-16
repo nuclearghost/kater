@@ -3,7 +3,6 @@
   Life's a party, kater.it
 
 == Future Enhancements
+* Pictures with no dish, only restaurant
 * Admins and Owners can't create orders
-* Admins can see all orders
 * Owners can see all orders for their restaurant(s)
-* Only admins can edit roles

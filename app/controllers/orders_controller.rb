@@ -1,12 +1,18 @@
 class OrdersController < ApplicationController
 
+  load_and_authorize_resource
+
   before_filter :authenticate_user!, :except => [:new]
 
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where("user_id = ?", current_user.id)
+    if current_user.role? :admin 
+      @orders = Order.order('updated_at DESC')
+    else
+      @orders = Order.where("user_id = ?", current_user.id).order('updated_at DESC')
+    end
 
     respond_to do |format|
       format.html # index.html.erb

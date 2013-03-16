@@ -8,4 +8,8 @@ class Dish < ActiveRecord::Base
 
   has_many :quantities
   has_many :orders, through: :quantities
+
+  def to_param
+  	"#{id}-#{name.parameterize}"
+  end
 end

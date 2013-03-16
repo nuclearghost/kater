@@ -22,12 +22,18 @@
     <td><%= link_to dish.restaurant.name, restaurant_url(dish.restaurant.id) %></td>
     <td><%= dish.category.name %></td>
     <td><%= link_to 'Show', dish %></td>
+    <% if can? :edit, Dish %>
     <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
+    <% end %>
+    <% if can? :destroy, Restaurant %>
     <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<% if can? :create, Dish %>
 <%= link_to 'New Dish', new_dish_path %>
+<% end %>

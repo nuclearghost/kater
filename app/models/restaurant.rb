@@ -7,4 +7,8 @@ class Restaurant < ActiveRecord::Base
   belongs_to :users
 
   validates_uniqueness_of :name
+
+  def to_param
+  	"#{id}-#{name.parameterize}"
+  end
 end

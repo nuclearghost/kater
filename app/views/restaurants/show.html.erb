@@ -34,11 +34,12 @@
   <b>Dishes:</b>
   <ul>
   <% @restaurant.dishes.each do |dish| %>
-  <%= link_to dish.name, dish_url(dish.id) %>
+    <li><%= link_to dish.name, restaurant_dish_url(@restaurant, dish) %></li>
   <% end %>
   </ul>
 </p>
 
-
+<% if can? :edit, Restaurant %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<% end %>
 <%= link_to 'Back', restaurants_path %>

@@ -10,6 +10,7 @@
   <%= @user.name %>
 </p>
 
+<% if current_user.role? :admin %>
 <p>
 	<b>Roles:</b>
 	<ul>
@@ -18,6 +19,7 @@
 		<% end %>
 	</ul>
 </p>
+<% end %>
 
 <% if current_user.role? :owner %>
 
