@@ -14237,3 +14237,13 @@ Processing by DishesController#show as HTML
   [1m[35mPicture Load (0.2ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."dish_id" = 2
   Rendered dishes/show.html.erb within layouts/application (4.2ms)
 Completed 200 OK in 118ms (Views: 107.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2013-03-15 22:17:33 -0500
+Processing by RestaurantsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "roles_users" ON "roles"."id" = "roles_users"."role_id" WHERE "roles_users"."user_id" = 1
+  [1m[36mRestaurant Load (0.2ms)[0m  [1mSELECT "restaurants".* FROM "restaurants" [0m
+  Rendered restaurants/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 41ms (Views: 26.9ms | ActiveRecord: 0.6ms)
+Connecting to database specified by database.yml
